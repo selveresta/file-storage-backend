@@ -84,4 +84,8 @@ export class FilesService {
 
     return files;
   }
+
+  async clearDatabase() {
+    await this.fileModel.destroy({ where: {}, truncate: true });
+  }
 }

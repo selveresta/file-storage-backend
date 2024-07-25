@@ -2,6 +2,7 @@ import {
   Controller,
   Post,
   Get,
+  Delete,
   Param,
   Res,
   Body,
@@ -51,5 +52,11 @@ export class FilesController {
   ) {
     const files = await this.filesService.listFiles(page, limit);
     return files;
+  }
+
+  @Delete('clear')
+  async clearDatabase() {
+    await this.filesService.clearDatabase();
+    return { message: 'Database cleared' };
   }
 }
